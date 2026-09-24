@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Employee and User Management</title>
+    <link rel="stylesheet" href="managementproject.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">Home</a>
+
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+        </nav>
+    </header>
+    <main>
+
+        <!-- PROJECT INTRO -->
+
+        <section class="project-hero">
+
+            <p class="small-text">02 — PROJECT</p>
+
+            <h1>Employee & User Management</h1>
+
+            <p class="project-subtitle">
+                A web application for managing employees and users
+            </p>
+
+        </section>
+
+
+        <!-- PROJECT SCREENSHOTS -->
+
+        <section class="project-gallery">
+
+            <div class="slideshow">
+
+                <button class="slide-btn prev" onclick="previousSlide()">
+                    ←
+                </button>
+
+                <img id="project-image" src="assets/management/management1.png"
+                    alt="Employee and User Management screenshot">
+
+                <button class="slide-btn next" onclick="nextSlide()">
+                    →
+                </button>
+
+            </div>
+
+            <div class="slide-controls">
+
+                <button onclick="showSlide(0)">●</button>
+                <button onclick="showSlide(1)">●</button>
+                <button onclick="showSlide(2)">●</button>
+                <button onclick="showSlide(3)">●</button>
+
+            </div>
+
+            <p id="slide-number">1 / 5</p>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+
+        <section class="project-section">
+
+            <p class="section-number">01 — OVERVIEW</p>
+
+            <h2>About the Project</h2>
+
+            <p>
+                Employee & User Management is a web application Named Manage Pro designed
+                to manage employee and user information through a structured
+                web interface. The project uses Spring Boot for the backend,
+                Thymeleaf for the frontend, and MySQL for data persistence.
+            </p>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="project-section">
+
+            <p class="section-number">02 — FEATURES</p>
+
+            <h2>Features</h2>
+
+            <ul>
+                <li>Add employee information</li>
+                <li>View employee records</li>
+                <li>Update employee information</li>
+                <li>Delete employee records</li>
+                <li>User management</li>
+                <li>Form validation</li>
+                <li>Database integration</li>
+            </ul>
+
+        </section>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <section class="project-section">
+
+            <p class="section-number">03 — TECHNOLOGIES</p>
+
+            <h2>Tech Stack</h2>
+
+            <div class="tech-list">
+
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Thymeleaf</span>
+                <span>JPA</span>
+                <span>Hibernate</span>
+                <span>MySQL</span>
+                <span>HTML</span>
+                <span>CSS</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT I LEARNED -->
+
+        <section class="project-section">
+
+            <p class="section-number">04 — LEARNING</p>
+
+            <h2>What I Learned</h2>
+
+            <ul>
+                <li>Building applications with Spring Boot</li>
+                <li>Working with MVC architecture</li>
+                <li>Performing CRUD operations</li>
+                <li>Connecting an application to MySQL</li>
+                <li>Using JPA and Hibernate</li>
+                <li>Creating dynamic pages with Thymeleaf</li>
+            </ul>
+
+        </section>
+
+
+        <!-- PROJECT LINKS -->
+
+        <section class="project-links">
+
+            <a href="#" class="btn">
+                GitHub →
+            </a>
+
+            <a href="#" class="btn btn-outline">
+                Live Demo →
+            </a>
+
+            <a href="index.html" class="btn">
+                Home →
+            </a>
+            
+        </section>
+
+    </main>
+    <script src="managementproject.js"></script>
+</body>
+
+</html>

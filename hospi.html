@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | Hospital Management</title>
+
+    <link rel="stylesheet" href="hospi.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">Home</a>
+
+            <div class="nav-links">
+
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#contact">Contact</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- PROJECT INTRO -->
+
+        <section class="project-hero">
+
+            <p class="small-text">03 — PROJECT</p>
+
+            <h1>Hospital Management</h1>
+
+            <p class="project-subtitle">
+                A web application for managing hospital information
+            </p>
+
+        </section>
+
+
+        <!-- PROJECT SLIDESHOW -->
+
+        <section class="project-gallery">
+
+            <div class="slideshow">
+
+                <button class="slide-btn prev" onclick="previousSlide()">
+                    ←
+                </button>
+
+                <img
+                    id="project-image"
+                    src="assets/hospital/hospital1.png"
+                    alt="Hospital Management screenshot"
+                >
+
+                <button class="slide-btn next" onclick="nextSlide()">
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="slide-controls">
+
+                <button onclick="showSlide(0)">●</button>
+                <button onclick="showSlide(1)">●</button>
+                <button onclick="showSlide(2)">●</button>
+                <button onclick="showSlide(3)">●</button>
+                <button onclick="showSlide(4)">●</button>
+
+            </div>
+
+
+            <p id="slide-number">1 / 5</p>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+
+        <section class="project-section">
+
+            <p class="section-number">01 — OVERVIEW</p>
+
+            <h2>About the Project</h2>
+
+            <p>
+                Hospital Management is a web application designed to
+                organize and manage hospital-related information.
+                The project focuses on managing doctors, patients,
+                and users through a structured web application.
+            </p>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="project-section">
+
+            <p class="section-number">02 — FEATURES</p>
+
+            <h2>Features</h2>
+
+            <ul>
+
+                <li>Doctor management</li>
+
+                <li>Patient management</li>
+
+                <li>User management</li>
+
+                <li>Organized hospital information</li>
+
+                <li>Web-based interface</li>
+
+                <li>Database integration</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <section class="project-section">
+
+            <p class="section-number">03 — TECHNOLOGIES</p>
+
+            <h2>Tech Stack</h2>
+
+            <div class="tech-list">
+
+                <span>Java</span>
+
+                <span>Maven</span>
+
+                <span>Servlets</span>
+
+                <span>JSP</span>
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>MySQL</span>
+
+                <span>Apache Tomcat</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHAT I LEARNED -->
+
+        <section class="project-section">
+
+            <p class="section-number">04 — LEARNING</p>
+
+            <h2>What I Learned</h2>
+
+            <ul>
+
+                <li>Building Java web applications</li>
+
+                <li>Working with Maven projects</li>
+
+                <li>Using Servlets and JSP</li>
+
+                <li>Deploying applications with Apache Tomcat</li>
+
+                <li>Working with MySQL databases</li>
+
+                <li>Understanding web application structure</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- PROJECT LINKS -->
+
+        <section class="project-links">
+
+            <a href="#" class="btn">
+                GitHub →
+            </a>
+
+            <a href="#" class="btn btn-outline">
+                Live Demo →
+            </a>
+
+            <a href="index.html" class="btn">
+                Home →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="hospi.js"></script>
+
+</body>
+
+</html>
