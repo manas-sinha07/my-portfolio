@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | California Watches</title>
+    <link rel="stylesheet" href="dragonproject.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">Home</a>
+
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- PROJECT INTRO -->
+
+        <section class="project-hero">
+
+            <p class="small-text">04 — PROJECT</p>
+
+            <h1>California Watches</h1>
+
+            <p class="project-subtitle">
+                A modern e-commerce web application
+            </p>
+
+        </section>
+
+
+        <!-- PROJECT SLIDESHOW -->
+
+        <section class="project-gallery">
+
+            <div class="slideshow">
+
+                <button class="slide-btn prev" onclick="previousSlide()">
+                    ←
+                </button>
+
+                <img id="project-image"
+                    src="assets/california/california1.png"
+                    alt="California Watches screenshot">
+
+                <button class="slide-btn next" onclick="nextSlide()">
+                    →
+                </button>
+
+            </div>
+
+
+            <div class="slide-controls">
+
+                <button onclick="showSlide(0)">●</button>
+                <button onclick="showSlide(1)">●</button>
+                <button onclick="showSlide(2)">●</button>
+                <button onclick="showSlide(3)">●</button>
+                <button onclick="showSlide(4)">●</button>
+
+            </div>
+
+            <p id="slide-number">1 / 5</p>
+
+        </section>
+
+
+        <!-- ABOUT PROJECT -->
+
+        <section class="project-section">
+
+            <p class="section-number">02 — ABOUT</p>
+
+            <h2>About the Project</h2>
+
+            <p>
+                California Watches is a modern e-commerce web application
+                built around a premium watch brand. The project focuses on
+                creating a clean shopping experience with product browsing,
+                collections, search, user accounts and cart functionality.
+            </p>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="project-section">
+
+            <p class="section-number">03 — FEATURES</p>
+
+            <h2>Features</h2>
+
+            <ul>
+                <li>Modern watch e-commerce interface</li>
+                <li>Product browsing and collections</li>
+                <li>Product search functionality</li>
+                <li>User login and registration</li>
+                <li>Shopping cart functionality</li>
+                <li>Responsive design</li>
+            </ul>
+
+        </section>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <section class="project-section">
+
+            <p class="section-number">04 — TECHNOLOGIES</p>
+
+            <h2>Tech Stack</h2>
+
+            <div class="tech-list">
+
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Thymeleaf</span>
+                <span>MySQL</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECT LINKS -->
+
+        <section class="project-links">
+
+            <a href="https://github.com/manas-sinha07/ecommerce"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn">
+                GitHub →
+            </a>
+
+            <a href="https://ecommerce-osuj.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline">
+                Live Demo →
+            </a>
+
+            <a href="index.html" class="btn">
+                Home →
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="dragonproject.js"></script>
+
+</body>
+
+</html>
