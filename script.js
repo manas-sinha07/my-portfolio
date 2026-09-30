@@ -137,33 +137,35 @@ const hero =
     document.querySelector(".hero");
 
 
-if (
-    hero &&
-    window.matchMedia("(pointer: fine)").matches
-) {
+if (window.matchMedia("(pointer:fine)").matches) {
 
-    let mouseX = 0;
-    let mouseY = 0;
+    // PC / laptop mouse movement
+    window.addEventListener("pointermove", (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * 13;
+        const y = (event.clientY / window.innerHeight - 0.5) * 8;
 
-    let currentX = 0;
-    let currentY = 0;
+        heroType.style.setProperty("--move-x", x + "px");
+        heroType.style.setProperty("--move-y", y + "px");
+    });
 
+} else {
 
-    window.addEventListener(
-        "pointermove",
-        (event) => {
+    // Mobile / touch movement
+    window.addEventListener("touchmove", (event) => {
 
-            mouseX =
-                (event.clientX / window.innerWidth)
-                - 0.5;
+        if (!event.touches.length) return;
 
-            mouseY =
-                (event.clientY / window.innerHeight)
-                - 0.5;
+        const touch = event.touches[0];
 
-        },
-        { passive: true }
-    );
+        const x = (touch.clientX / window.innerWidth - 0.5) * 13;
+        const y = (touch.clientY / window.innerHeight - 0.5) * 8;
+
+        heroType.style.setProperty("--move-x", x + "px");
+        heroType.style.setProperty("--move-y", y + "px");
+
+    }, { passive: true });
+
+}
 
 
     function animateBackground() {
