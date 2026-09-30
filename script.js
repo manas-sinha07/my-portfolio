@@ -67,16 +67,20 @@ setTheme(
 );
 
 
-themeToggle.addEventListener(
-    "click",
-    toggleTheme
-);
+if (themeToggle) {
+    themeToggle.addEventListener(
+        "click",
+        toggleTheme
+    );
+}
 
 
-mobileThemeToggle.addEventListener(
-    "click",
-    toggleTheme
-);
+if (mobileThemeToggle) {
+    mobileThemeToggle.addEventListener(
+        "click",
+        toggleTheme
+    );
+}
 
 
 /* =====================================================
@@ -90,38 +94,42 @@ const mobileMenu =
     document.getElementById("mobile-menu");
 
 
-mobileToggle.addEventListener(
-    "click",
-    () => {
+if (mobileToggle && mobileMenu) {
 
-        mobileMenu.classList.toggle(
-            "open"
-        );
+    mobileToggle.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            mobileMenu.classList.toggle(
+                "open"
+            );
+
+        }
+    );
 
 
-document
-    .querySelectorAll(".mobile-menu a")
-    .forEach(link => {
+    document
+        .querySelectorAll(".mobile-menu a")
+        .forEach(link => {
 
-        link.addEventListener(
-            "click",
-            () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                mobileMenu.classList.remove(
-                    "open"
-                );
+                    mobileMenu.classList.remove(
+                        "open"
+                    );
 
-            }
-        );
+                }
+            );
 
-    });
+        });
+
+}
 
 
 /* =====================================================
-   SMOOTH CURSOR BACKGROUND
+   SMOOTH CURSOR / TOUCH BACKGROUND
 ===================================================== */
 
 const orbs =
@@ -137,35 +145,41 @@ const hero =
     document.querySelector(".hero");
 
 
-if (window.matchMedia("(pointer:fine)").matches) {
+if (hero) {
 
-    // PC / laptop mouse movement
-    window.addEventListener("pointermove", (event) => {
-        const x = (event.clientX / window.innerWidth - 0.5) * 13;
-        const y = (event.clientY / window.innerHeight - 0.5) * 8;
+    let mouseX = 0;
+    let mouseY = 0;
 
-        heroType.style.setProperty("--move-x", x + "px");
-        heroType.style.setProperty("--move-y", y + "px");
-    });
+    let currentX = 0;
+    let currentY = 0;
 
-} else {
 
-    // Mobile / touch movement
-    window.addEventListener("touchmove", (event) => {
+    /*
+     * Pointer Events work with:
+     *
+     * - Mouse on PC
+     * - Finger on mobile
+     * - Stylus / pen
+     *
+     * So we don't need separate
+     * pointermove and touchmove code.
+     */
 
-        if (!event.touches.length) return;
+    window.addEventListener(
+        "pointermove",
+        (event) => {
 
-        const touch = event.touches[0];
+            mouseX =
+                (event.clientX / window.innerWidth)
+                - 0.5;
 
-        const x = (touch.clientX / window.innerWidth - 0.5) * 13;
-        const y = (touch.clientY / window.innerHeight - 0.5) * 8;
+            mouseY =
+                (event.clientY / window.innerHeight)
+                - 0.5;
 
-        heroType.style.setProperty("--move-x", x + "px");
-        heroType.style.setProperty("--move-y", y + "px");
-
-    }, { passive: true });
-
-}
+        },
+        { passive: true }
+    );
 
 
     function animateBackground() {
@@ -174,7 +188,7 @@ if (window.matchMedia("(pointer:fine)").matches) {
          * Smooth interpolation.
          *
          * Instead of instantly moving the objects,
-         * we slowly move them toward the mouse.
+         * we slowly move them toward the pointer.
          */
 
         currentX +=
@@ -258,6 +272,7 @@ if (window.matchMedia("(pointer:fine)").matches) {
 
     animateBackground();
 
+}
 
 
 /* =====================================================
@@ -270,6 +285,12 @@ const projectRows =
     );
 
 
+/*
+ * This effect stays desktop-only because
+ * it specifically follows the mouse cursor
+ * over project rows.
+ */
+
 if (
     window.matchMedia("(pointer: fine)").matches
 ) {
@@ -280,6 +301,11 @@ if (
             row.querySelector(
                 ".project-preview"
             );
+
+
+        if (!image) {
+            return;
+        }
 
 
         row.addEventListener(
