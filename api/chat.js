@@ -124,7 +124,8 @@ Rules:
             console.error("Gemini API error:", data);
 
             return res.status(502).json({
-                error: data?.error?.message || "Gemini request failed."
+                error: data?.error?.message || "Gemini request failed.",
+                status: response.status
             });
         }
 
