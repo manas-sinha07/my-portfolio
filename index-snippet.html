@@ -1,0 +1,54 @@
+<!-- MANAS AI CHATBOT -->
+
+<link rel="stylesheet" href="ai-bot.css">
+
+<button
+    id="ai-chat-button"
+    class="ai-chat-button"
+    type="button"
+    aria-controls="ai-chat-panel">
+    ASK MANAS AI
+</button>
+
+<section
+    id="ai-chat-panel"
+    class="ai-chat-panel"
+    aria-hidden="true"
+    aria-label="Manas AI chat">
+
+    <div class="ai-chat-header">
+        <div class="ai-chat-title">
+            <strong>MANAS AI</strong>
+            <span>PORTFOLIO ASSISTANT</span>
+        </div>
+
+        <button
+            id="ai-chat-close"
+            class="ai-chat-close"
+            type="button"
+            aria-label="Close chat">
+            ×
+        </button>
+    </div>
+
+    <div id="ai-chat-messages" class="ai-chat-messages"></div>
+
+    <form id="ai-chat-form" class="ai-chat-form">
+        <input
+            id="ai-chat-input"
+            class="ai-chat-input"
+            type="text"
+            placeholder="Ask about Manas..."
+            autocomplete="off"
+            maxlength="4000">
+
+        <button
+            id="ai-chat-send"
+            class="ai-chat-send"
+            type="submit">
+            SEND
+        </button>
+    </form>
+</section>
+
+<script src="ai-bot.js"></script>
