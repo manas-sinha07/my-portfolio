@@ -90,7 +90,7 @@ export default async function handler(req, res) {
 
     try {
         const body = {
-            model: "gemini-3.8-flash",
+            model: "gemini-3.6-flash",
             input: message,
             system_instruction: SYSTEM_PROMPT,
             store: true
