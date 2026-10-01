@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const button = document.getElementById("ai-chat-button");
     const panel = document.getElementById("ai-chat-panel");
     const closeButton = document.getElementById("ai-chat-close");
@@ -12,30 +11,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Only stores completed conversation turns.
-    const history = [];
-
+    let previousInteractionId = null;
 
     function addMessage(text, role) {
-
         const message = document.createElement("div");
 
         message.className = `ai-message ${role}`;
-
         message.textContent = text;
 
         messages.appendChild(message);
-
         messages.scrollTop = messages.scrollHeight;
 
         return message;
     }
 
-
     function openChat() {
-
         panel.classList.add("open");
-
         panel.setAttribute("aria-hidden", "false");
 
         setTimeout(() => {
@@ -43,37 +34,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     }
 
-
     function closeChat() {
-
         panel.classList.remove("open");
-
         panel.setAttribute("aria-hidden", "true");
     }
 
-
     button.addEventListener("click", () => {
-
         if (panel.classList.contains("open")) {
             closeChat();
         } else {
             openChat();
         }
-
     });
 
-
     closeButton.addEventListener("click", closeChat);
-
 
     addMessage(
         "Hi, I'm Manas AI. Ask me about Manas, his projects, skills or technologies.",
         "bot"
     );
 
-
     form.addEventListener("submit", async (event) => {
-
         event.preventDefault();
 
         const message = input.value.trim();
@@ -82,90 +63,45 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
-        // Show the user's message immediately.
         addMessage(message, "user");
 
-
         input.value = "";
-
         input.disabled = true;
-
         sendButton.disabled = true;
 
-
-        const typing = addMessage(
-            "THINKING...",
-            "bot typing"
-        );
-
+        const typing = addMessage("THINKING...", "bot typing");
 
         try {
-
             const response = await fetch("/api/chat", {
-
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-
-                    // Previous conversation only.
-                    history: history.slice(-10),
-
-                    // Current question.
-                    message: message
-
+                    message,
+                    previousInteractionId
                 })
-
             });
-
 
             const data = await response.json();
 
-
             typing.remove();
 
-
             if (!response.ok || !data.reply) {
-
-                console.error(
-                    "AI API error:",
-                    data
-                );
+                console.error("AI API error:", data);
 
                 throw new Error(
                     data.error || "Request failed"
                 );
             }
 
+            addMessage(data.reply, "bot");
 
-            // Show AI response.
-            addMessage(
-                data.reply,
-                "bot"
-            );
+            if (data.interactionId) {
+                previousInteractionId = data.interactionId;
+            }
 
-
-            // Only AFTER a successful response,
-            // add both messages to conversation history.
-
-            history.push({
-                role: "user",
-                text: message
-            });
-
-
-            history.push({
-                role: "assistant",
-                text: data.reply
-            });
-
-
-        }  catch (error) {
-
+        } catch (error) {
             console.error("Manas AI error:", error);
 
             addMessage(
@@ -174,15 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         } finally {
-
-        input.disabled = false;
-
-        sendButton.disabled = false;
-
-        input.focus();
-
-    }
-
-});
-
+            input.disabled = false;
+            sendButton.disabled = false;
+            input.focus();
+        }
+    });
 });
