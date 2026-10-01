@@ -164,29 +164,25 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
 
-        } catch (error) {
+        }  catch (error) {
 
-            console.error(
-                "Manas AI error:",
-                error
-            );
-
+            console.error("Manas AI error:", error);
 
             addMessage(
-                "Sorry, I couldn't connect to the AI right now. Please try again.",
+                `AI ERROR: ${error.message}`,
                 "bot"
             );
 
         } finally {
 
-            input.disabled = false;
+        input.disabled = false;
 
-            sendButton.disabled = false;
+        sendButton.disabled = false;
 
-            input.focus();
+        input.focus();
 
-        }
+    }
 
-    });
+});
 
 });
