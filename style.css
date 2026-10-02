@@ -1069,7 +1069,7 @@ button {
 
     color: var(--text);
 
-    font-size: clamp(32px, 4.5vw, 65px);
+    font-size: clamp(28px, 4vw, 58px);
 
     letter-spacing: -0.05em;
 
